@@ -1,19 +1,11 @@
-# Twitter Killswitch
+# Boycott
 
-Twitter Killswitch bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+list of applications and brands who help Islamic Republic to identify citizens of Iran
 
 ## Setup
 
 ### Setting up environment variables
 first you need to make .env
-
-```$xslt
-cp .env.exampe .env
-```
-to change api url, set a new value for ``REACT_APP_API_BASE``
-
-on production, it is recommended to set ``REACT_APP_DEBUG`` on false, so it creates an infinite loop when user requests 
-the kill API so nobody can access it again, and it will crash the browser
 
 ### Install dependencies
 
