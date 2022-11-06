@@ -1,10 +1,4 @@
-interface ThemeType {
-  direction: string;
-  defaultRem: string;
-  defaultFont: string;
-}
-
-const theme: ThemeType = {
+const theme = {
   direction: 'ltr',
   defaultRem: '1rem',
   defaultFont: 'Open Sans',
