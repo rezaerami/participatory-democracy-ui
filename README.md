@@ -1,4 +1,4 @@
-# Boycott
+# Participatory Democracy UI
 
 list of applications and brands who help Islamic Republic to identify citizens of Iran
 

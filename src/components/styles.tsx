@@ -6,7 +6,7 @@ const additional = css`
   :root {
     --white: #ffffff;
     --black: #000000;
-    --twitter: #1da1f2;
+    --blue: #1da1f2;
     --nuke: #ffff00;
     --green: #009a3a;
     --red: #c41932;
