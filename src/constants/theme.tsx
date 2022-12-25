@@ -1,7 +1,7 @@
 const theme = {
-  direction: 'ltr',
+  direction: 'rtl',
   defaultRem: '1rem',
-  defaultFont: 'Open Sans',
+  defaultFont: 'Open Sans, tahoma',
 };
 
 export default theme;
