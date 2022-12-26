@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledArticleCardWrapper = styled.div`
+export const StyledCardWrapper = styled.div`
   a {
     color: inherit;
   }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledPolIsVoteBox = styled.div`
-  > iframe {
+  iframe {
     width: 100%;
   }
 `;

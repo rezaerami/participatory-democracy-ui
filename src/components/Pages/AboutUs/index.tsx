@@ -7,7 +7,6 @@ export interface AboutUsTypes {
 }
 
 const AboutUs: React.FC<AboutUsTypes> = ({ className }: AboutUsTypes) => {
-  console.log("about us mounted")
   return (
       <StyledAboutUsWrapper className={className}>this is AboutUs</StyledAboutUsWrapper>
   )

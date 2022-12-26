@@ -1,0 +1,10 @@
+query PageArticlesOverview($limit: Int, $skip: Int) {
+    pageArticleCollection(limit: $limit, skip: $skip) {
+      total
+      skip
+      limit
+      items {
+        ...ComponentBlockArticle
+      }
+    }
+}

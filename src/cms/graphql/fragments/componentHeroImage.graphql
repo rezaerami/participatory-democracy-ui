@@ -1,0 +1,11 @@
+fragment ComponentHeroImage on ComponentHeroImage {
+    __typename
+    sys {
+      id
+    }
+    title
+    subtitle
+    image {
+      ...ComponentAsset
+    }
+}

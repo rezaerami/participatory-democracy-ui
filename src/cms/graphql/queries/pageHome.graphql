@@ -1,7 +1,4 @@
-import { ComponentMetatags, ComponentPageBuilder } from 'cms/components';
-
-export const PageHome = `
-  query PageHome {
+query PageHome {
     pageHomeCollection(limit: 1) {
       items {
         title
@@ -14,8 +11,4 @@ export const PageHome = `
         }
       }
     }
-  }
-
-  ${ComponentMetatags}
-  ${ComponentPageBuilder}
-`;
+}

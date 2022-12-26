@@ -12,7 +12,6 @@ const Layout: React.FC<LayoutTypes> = ({
   className,
   children,
 }: LayoutTypes) => {
-  console.log('layout mounted');
   return (
     <StyledLayoutWrapper className={className}>
       <Header />

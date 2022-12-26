@@ -1,6 +1,6 @@
 const MESSAGES = {
   HOME: 'خانه',
-  ARTICLES: 'مقالان',
+  ARTICLES: 'مقالات',
   ABOUT_US: 'درباره ما',
   LOGOUT: 'خروج',
   LOGIN: 'ورود',

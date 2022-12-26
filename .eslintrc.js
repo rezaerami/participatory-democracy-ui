@@ -3,6 +3,7 @@ const fs = require('fs');
 const prettierOptions = JSON.parse(fs.readFileSync('./.prettierrc', 'utf8'));
 
 module.exports = {
+  ignorePatterns: ['/src/cms/**/*.generated.ts'],
   env: {
     browser: true,
     es2021: true,

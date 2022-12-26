@@ -1,0 +1,18 @@
+fragment ComponentRow on ComponentRow {
+    title
+    subtitle
+    columnsCollection(limit: $colLimit, skip: $colSkip) {
+      limit
+      skip
+      total
+      items {
+        ...ComponentCol
+      }
+    }
+}
+
+query Row($id: String!, $colLimit: Int, $colSkip: Int) {
+  componentRow(id: $id) {
+    ...ComponentRow
+  }
+}

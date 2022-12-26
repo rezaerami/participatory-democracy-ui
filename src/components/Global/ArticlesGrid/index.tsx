@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleCard, { ArticleTypes } from '../ArticleCard';
+import Card, { CardContentTypes } from '../Card';
 import {
   StyledArticlesGridWrapper,
   StyledTitle,
@@ -11,7 +11,7 @@ import {
 export interface ArticlesGridTypes {
   className?: string;
   title?: string;
-  items: ArticleTypes[];
+  items: CardContentTypes[];
 }
 
 const ArticlesGrid: React.FC<ArticlesGridTypes> = ({
@@ -28,7 +28,7 @@ const ArticlesGrid: React.FC<ArticlesGridTypes> = ({
     <StyledRow justify="center">
       {items.map((article) => (
         <StyledCol key={article.link} sm={{ span: 12 }} md={{ span: 8 }}>
-          <ArticleCard article={article} />
+          <Card content={article} />
         </StyledCol>
       ))}
     </StyledRow>

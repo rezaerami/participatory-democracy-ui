@@ -1,0 +1,10 @@
+fragment ComponentPageBuilder on ComponentPageBuilder {
+    title
+    rowsCollection {
+      items {
+        sys {
+            id
+        }
+      }
+    }
+}

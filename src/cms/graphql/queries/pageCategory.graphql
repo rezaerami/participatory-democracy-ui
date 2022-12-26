@@ -1,11 +1,4 @@
-import {
-  ComponentAsset,
-  ComponentMetatags,
-  ComponentPageBuilder,
-} from 'cms/components';
-
-export const PageCategory = `
-  query PageCategory($slug: String!) {
+query PageCategory($slug: String!) {
     pageCategoryCollection(where: { slug: $slug }, limit: 1) {
       items {
         slug
@@ -22,9 +15,4 @@ export const PageCategory = `
         }
       }
     }
-  }
-
-  ${ComponentMetatags}
-  ${ComponentAsset}
-  ${ComponentPageBuilder}
-`;
+}
