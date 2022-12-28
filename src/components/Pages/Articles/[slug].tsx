@@ -2,14 +2,13 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { usePageArticleQuery } from 'cms/graphql/queries/pageArticle.generated';
-import { PageArticle } from 'cms/graphql/types.generated';
+import {ComponentPageBuilder, PageArticle} from 'cms/graphql/types.generated';
 import { PageBuilder } from 'components/Common';
 import MESSAGES from 'constants/messages';
 import { ROUTES } from 'constants/routes';
-import { Breadcrumb, ArticlesGrid } from 'components/Global';
+import { Breadcrumb } from 'components/Global';
 
 import { StyledArticlesWrapper, StyledContainer } from './styles';
-import mocks from './mock.json';
 
 export interface ArticlesTypes {
   className?: string;
@@ -26,7 +25,7 @@ const ArticlesDetails: React.FC<ArticlesTypes> = ({
   const { slug = '' } = useParams();
 
   const { data } = usePageArticleQuery({ slug }, { enabled: !!slug });
-  const article = data?.pageArticleCollection?.items?.[0] as PageArticle;
+  const article = data?.pageArticleCollection?.items?.[0];
 
   return (
     <StyledArticlesWrapper className={className}>
@@ -35,7 +34,7 @@ const ArticlesDetails: React.FC<ArticlesTypes> = ({
           items={[...breadcrumbItems, { title: article?.title ?? '' }]}
         />
       </StyledContainer>
-      <PageBuilder pageBuilder={article?.pageBuilder} />
+      <PageBuilder pageBuilder={article?.pageBuilder as ComponentPageBuilder} />
     </StyledArticlesWrapper>
   );
 };

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import { generatePath } from 'react-router-dom';
 
+import { usePageArticlesOverviewQuery } from 'cms/graphql/queries/pageArticlesOverview.generated';
 import MESSAGES from 'constants/messages';
 import { ROUTES } from 'constants/routes';
-import { ArticlesGrid, Breadcrumb, Container } from 'components/Global';
+import { getPathByTypename } from 'utils/utlUtils';
+import { CardsGrid, Breadcrumb, Container } from 'components/Global';
+import { CardContentTypes } from 'components/Global/Card';
 
 import { StyledArticlesWrapper } from './styles';
-import mocks from './mock.json';
-import { usePageArticlesOverviewQuery } from '../../../cms/graphql/queries/pageArticlesOverview.generated';
-import { CardContentTypes } from '../../Global/Card';
-import { getPathByTypename } from '../../../utils/utlUtils';
-import { generatePath } from 'react-router-dom';
 
 export interface ArticlesTypes {
   className?: string;
@@ -46,7 +45,7 @@ const Articles: React.FC<ArticlesTypes> = ({ className }: ArticlesTypes) => {
         <Breadcrumb items={breadcrumbItems} />
       </Container>
       <Container>
-          <ArticlesGrid items={articles} />
+        <CardsGrid items={articles} />
       </Container>
     </StyledArticlesWrapper>
   );

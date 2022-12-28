@@ -9,6 +9,7 @@ const MESSAGES = {
   RELEVANT_ARTICLES: 'مقالات مشابه',
   RELEVANT_VOTING: 'نظرسنجی های مشابه',
   LOGIN_VIA_GOOGLE: 'ورود با گوگل',
+  CATEGORIES: 'دسته بندی ها',
 };
 
 export default MESSAGES;

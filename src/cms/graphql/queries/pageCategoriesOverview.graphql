@@ -1,0 +1,10 @@
+query PageCategoriesOverview($limit: Int, $skip: Int) {
+    pageCategoryCollection(limit: $limit, skip: $skip) {
+      total
+      skip
+      limit
+      items {
+        ...ComponentBlockCategory
+      }
+    }
+}

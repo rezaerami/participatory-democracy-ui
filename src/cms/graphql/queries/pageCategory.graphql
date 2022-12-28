@@ -1,17 +1,22 @@
 query PageCategory($slug: String!) {
     pageCategoryCollection(where: { slug: $slug }, limit: 1) {
       items {
-        slug
-        title
-        subtitle
+        ...ComponentBlockCategory
         metatags {
           ...ComponentMetatags
         }
-        thumbnail {
-          ...ComponentAsset
-        }
         pageBuilder {
           ...ComponentPageBuilder
+        }
+        linkedFrom {
+          pageArticleCollection {
+            total
+            skip
+            limit
+            items {
+              ...ComponentBlockArticle
+            }
+          }
         }
       }
     }

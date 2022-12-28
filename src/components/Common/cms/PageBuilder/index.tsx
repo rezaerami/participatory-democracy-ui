@@ -1,12 +1,9 @@
 import React from 'react';
 
-import {
-  ComponentPageBuilder,
-  ComponentRow,
-} from 'cms/graphql/types.generated';
+import { ComponentPageBuilder } from 'cms/graphql/types.generated';
+import Row from 'components/Common/cms/Row';
 
 import { StyledPageBuilder } from './styles';
-import Row from '../Row';
 
 export interface PageBuilderTypes {
   className?: string;

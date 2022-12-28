@@ -1,9 +1,7 @@
 query PageArticle($slug: String!) {
     pageArticleCollection(where: { slug: $slug }, limit: 1) {
       items {
-        slug
-        title
-        subtitle
+        ...ComponentBlockArticle
         categoriesCollection(limit: 10) {
           items {
             ...ComponentInlineCategory
@@ -16,9 +14,6 @@ query PageArticle($slug: String!) {
           items {
             ...ComponentAsset
           }
-        }
-        thumbnail {
-          ...ComponentAsset
         }
         pageBuilder {
           ...ComponentPageBuilder

@@ -2,14 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel as AntdCarousel, CarouselProps } from 'antd';
 
-import {
-  StyledCarouselItem,
-  StyledCarouselImage,
-  StyledCarouselTitle,
-  StyledCarouselDescription,
-  StyledSliderContent,
-} from './styles';
-import HeroImage from '../HeroImage';
+import HeroImage from 'components/Global/HeroImage';
+import { StyledCarouselItem } from './styles';
 
 export interface CarouselItemTypes {
   image: string;

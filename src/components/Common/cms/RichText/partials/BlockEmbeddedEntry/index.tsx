@@ -12,9 +12,8 @@ import { ComponentPolisFragment } from 'cms/graphql/fragments/componentPolis.gen
 import { getPathByTypename } from 'utils/utlUtils';
 
 import { Card, Carousel, HeroImage, PolIsVoteBox } from 'components/Global';
+import { CarouselItemTypes } from 'components/Global/Carousel';
 import Button from 'components/Common/cms/Button';
-import { ComponentBlockCategoryFragment } from '../../../../../../cms/graphql/fragments/componentCategory.generated';
-import { CarouselItemTypes } from '../../../../../Global/Carousel';
 
 export interface BlockEmbeddedEntryTypes {
   className?: string;

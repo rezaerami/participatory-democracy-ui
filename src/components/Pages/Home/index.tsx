@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { usePageHomeQuery } from 'cms/graphql/queries/pageHome.generated';
+import { ComponentPageBuilder } from 'cms/graphql/types.generated';
 import { PageBuilder } from 'components/Common';
 
 import { StyledHomeWrapper } from './styles';
-import { ComponentPageBuilder } from '../../../cms/graphql/types.generated';
 
 export interface HomeTypes {
   className?: string;
