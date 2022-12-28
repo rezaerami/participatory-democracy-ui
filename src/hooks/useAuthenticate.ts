@@ -1,20 +1,33 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 
-import { AuthenticationType } from 'types/user';
+import { AuthenticationType, UserType } from 'types/user';
 import { getProfile } from 'services/user';
+import { logout } from 'services/auth';
 
 export default (): AuthenticationType => {
   const { search } = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(search);
 
+  const [user, setUser] = useState<UserType | null>(null);
   const [token, setToken] = useState<string | null>(
     localStorage.getItem('token'),
   );
   const { data, isSuccess } = useQuery(['getProfile', token], getProfile, {
     enabled: !!token,
+  });
+  useEffect(() => {
+    setUser(data?.data?.results);
+  }, [data, isSuccess]);
+
+  const logoutMutation = useMutation({
+    mutationFn: logout,
+    onSuccess: () => {
+      localStorage.removeItem('token');
+      setUser(null);
+    },
   });
 
   useEffect(() => {
@@ -31,10 +44,10 @@ export default (): AuthenticationType => {
     }
   }, [isSuccess]);
 
-  const user = data?.data?.results;
   return {
     token,
     user,
     isLoggedIn: !!user,
+    handleLogout: logoutMutation.mutate,
   };
 };

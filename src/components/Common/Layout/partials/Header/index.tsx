@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 import { Button, Col, Dropdown, Row } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
+import MESSAGES from 'constants/messages';
+import { useRedirect } from 'hooks';
+import { isExternalUrl } from 'utils/utlUtils';
 import { GlobalContext } from 'components/Common/Hoc/context';
-import { navItems, userMenu, guestMenu } from './navItems';
+
+import { navItems, userMenu, guestMenu, NavItemType } from './navItems';
 import {
   StyledHeaderWrapper,
   StyledNavWrapper,
@@ -19,7 +23,28 @@ export interface HeaderTypes {
 }
 
 const Header: React.FC<HeaderTypes> = ({ className }: HeaderTypes) => {
-  const { user, isLoggedIn } = useContext(GlobalContext);
+  const { user, isLoggedIn, handleLogout } = useContext(GlobalContext);
+  const { redirect } = useRedirect();
+
+  const logoutMenuItem: NavItemType = {
+    label: MESSAGES.LOGOUT,
+    onClick: handleLogout,
+  };
+
+  const handleNavItemClick =
+    (link: NavItemType) =>
+    (e: any): void => {
+      if (link?.onClick) {
+        link.onClick();
+      }
+
+      if (link?.path && isExternalUrl(link.path)) {
+        e.preventDefault();
+
+        redirect(link.path, window.location.pathname);
+      }
+    };
+
   return (
     <StyledHeaderWrapper className={className}>
       <StyledNavWrapper>
@@ -28,8 +53,17 @@ const Header: React.FC<HeaderTypes> = ({ className }: HeaderTypes) => {
             <StyledNavAction>
               <Dropdown
                 menu={{
-                  items: (isLoggedIn ? userMenu : guestMenu).map((item) => ({
-                    label: <Link to={item.path}>{item.label}</Link>,
+                  items: (isLoggedIn
+                    ? [...userMenu, logoutMenuItem]
+                    : guestMenu
+                  ).map((item) => ({
+                    label: item?.path ? (
+                      <Link to={item.path} onClick={handleNavItemClick(item)}>
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span onClick={item.onClick}>{item.label}</span>
+                    ),
                     key: item.label,
                   })),
                 }}
@@ -48,7 +82,11 @@ const Header: React.FC<HeaderTypes> = ({ className }: HeaderTypes) => {
             <StyledMenu mode="horizontal">
               {navItems.map((navItem) => (
                 <StyledMenuItem key={navItem.label}>
-                  <Link to={navItem.path}>{navItem.label}</Link>
+                  {navItem?.path ? (
+                    <Link to={navItem.path}>{navItem.label}</Link>
+                  ) : (
+                    navItem.label
+                  )}
                 </StyledMenuItem>
               ))}
             </StyledMenu>

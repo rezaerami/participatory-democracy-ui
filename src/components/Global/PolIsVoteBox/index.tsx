@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { GoogleOutlined } from '@ant-design/icons';
 
 import MESSAGES from 'constants/messages';
-import { ENDPOINTS } from 'constants/endpoints';
+import { ROUTES } from 'constants/routes';
 import { useRedirect } from 'hooks';
 import { GlobalContext } from 'components/Common/Hoc/context';
 import { initializePolis } from 'resources/js/polis.embed.js';
@@ -45,10 +45,7 @@ const PolIsVoteBox: React.FC<PolIsVoteBoxTypes> = ({
         <StyledShadowOver>
           <StyledButton
             onClick={() =>
-              redirect(
-                ENDPOINTS.AUTH.SSO_REDIRECT({ service: 'google' }),
-                window.location.pathname,
-              )
+              redirect(ROUTES.LOGIN_VIA_GOOGLE, window.location.pathname)
             }
             icon={<GoogleOutlined />}
             size={'large'}
