@@ -7,4 +7,5 @@ export interface AuthenticationType {
   token: string | null;
   user: UserType | null;
   isLoggedIn: boolean;
+  handleLogout: () => void;
 }

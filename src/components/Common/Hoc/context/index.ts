@@ -6,6 +6,8 @@ const defaultValues: AuthenticationType = {
   user: null,
   token: null,
   isLoggedIn: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  handleLogout: () => {},
 };
 const GlobalContext = createContext(defaultValues);
 const { Provider: GlobalContextProvider, Consumer: GlobalContextConsumer } =

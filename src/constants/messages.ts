@@ -8,7 +8,7 @@ const MESSAGES = {
   COPYRIGHT: 'تمامی حقوق محفوظ است',
   RELEVANT_ARTICLES: 'مقالات مشابه',
   RELEVANT_VOTING: 'نظرسنجی های مشابه',
-  LOGIN_VIA_GOOGLE: 'ورود با گوگل',
+  LOGIN_VIA_GOOGLE: 'ورود با حساب کاربری گوگل',
   CATEGORIES: 'دسته بندی ها',
 };
 

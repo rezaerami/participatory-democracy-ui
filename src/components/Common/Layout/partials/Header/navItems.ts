@@ -1,7 +1,13 @@
 import MESSAGES from 'constants/messages';
 import { ROUTES } from 'constants/routes';
 
-export const navItems = [
+export interface NavItemType {
+  label: string;
+  path?: string;
+  onClick?: () => void;
+}
+
+export const navItems: NavItemType[] = [
   {
     label: MESSAGES.HOME,
     path: ROUTES.HOME,
@@ -16,16 +22,11 @@ export const navItems = [
   },
 ];
 
-export const userMenu = [
-  {
-    label: MESSAGES.LOGOUT,
-    path: ROUTES.LOGOUT,
-  },
-];
+export const userMenu: NavItemType[] = [];
 
-export const guestMenu = [
+export const guestMenu: NavItemType[] = [
   {
-    label: MESSAGES.LOGIN,
-    path: ROUTES.LOGIN,
+    label: MESSAGES.LOGIN_VIA_GOOGLE,
+    path: ROUTES.LOGIN_VIA_GOOGLE,
   },
 ];
