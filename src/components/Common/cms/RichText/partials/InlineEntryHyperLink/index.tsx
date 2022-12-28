@@ -27,7 +27,7 @@ const InlineEntryHyperLink: React.FC<InlineEntryHyperLinkTypes> = ({
     | ComponentInlineCategoryFragment;
 
   const path = generatePath(getPathByTypename(link?.__typename), {
-    slug: link?.slug || '',
+    slug: link?.slug ?? '',
   });
 
   return (

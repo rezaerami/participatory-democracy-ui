@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 import { AuthenticationType } from 'types/user';
 import { getProfile } from 'services/user';
 
-export const useAuthenticate = (): AuthenticationType => {
+export default (): AuthenticationType => {
   const { search } = useLocation();
+  const navigate = useNavigate();
   const queryParams = new URLSearchParams(search);
 
   const [token, setToken] = useState<string | null>(
     localStorage.getItem('token'),
   );
-  const { data } = useQuery(['getProfile', token], getProfile, {
+  const { data, isSuccess } = useQuery(['getProfile', token], getProfile, {
     enabled: !!token,
   });
 
@@ -23,6 +24,12 @@ export const useAuthenticate = (): AuthenticationType => {
       localStorage.setItem('token', tokenParam);
     }
   }, [search]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate(window.location.pathname);
+    }
+  }, [isSuccess]);
 
   const user = data?.data?.results;
   return {

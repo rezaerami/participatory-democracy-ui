@@ -18,8 +18,6 @@ const BlockEmbeddedAsset: React.FC<BlockEmbeddedAssetTypes> = ({
       className={className}
       title={asset?.title ?? ''}
       src={asset?.url ?? ''}
-      width={asset?.width ?? ''}
-      height={asset?.height ?? ''}
       preview={false}
     />
   );

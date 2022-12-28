@@ -1,22 +1,27 @@
 import React from 'react';
 
-import { ArticlesGrid, Carousel, Container } from 'components/Global';
-import MESSAGES from 'constants/messages';
+import { usePageHomeQuery } from 'cms/graphql/queries/pageHome.generated';
+import { PageBuilder } from 'components/Common';
 
 import { StyledHomeWrapper } from './styles';
-import mock from './mock.json';
+import { ComponentPageBuilder } from '../../../cms/graphql/types.generated';
 
 export interface HomeTypes {
   className?: string;
 }
 
-const Home: React.FC<HomeTypes> = ({ className }: HomeTypes) => (
-  <StyledHomeWrapper className={className}>
-    <Carousel items={mock.results.highlights} autoplay />
-    <Container>
-      <ArticlesGrid title={MESSAGES.ARTICLES} items={mock.results.articles} />
-    </Container>
-  </StyledHomeWrapper>
-);
+const Home: React.FC<HomeTypes> = ({ className }: HomeTypes) => {
+  const { data } = usePageHomeQuery();
+  return (
+    <StyledHomeWrapper className={className}>
+      <PageBuilder
+        pageBuilder={
+          data?.pageHomeCollection?.items?.[0]
+            ?.pageBuilder as ComponentPageBuilder
+        }
+      />
+    </StyledHomeWrapper>
+  );
+};
 
 export default Home;

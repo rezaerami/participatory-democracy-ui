@@ -8,3 +8,5 @@ export const getPathByTypename = (typename: string): string => {
 
   return lookup?.[typename] || typename;
 };
+
+export const isExternalUrl = (url: string): boolean => /^http/.test(url);

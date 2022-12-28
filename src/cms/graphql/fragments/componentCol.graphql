@@ -32,6 +32,9 @@ fragment ComponentCol on ComponentCol {
               ... on PageCategory {
                 ...ComponentInlineCategory
               }
+              ... on ComponentButton {
+                ...ComponentButton
+              }
             }
             block {
               ... on PageArticle {
@@ -46,6 +49,12 @@ fragment ComponentCol on ComponentCol {
               ... on ComponentPolIs {
                 ...ComponentPolis
               }
+              ... on ComponentButton {
+                ...ComponentButton
+              }
+              ... on ComponentCarousel {
+                ...ComponentCarousel
+              }
             }
           }
         }
@@ -53,4 +62,8 @@ fragment ComponentCol on ComponentCol {
     sys {
         id
     }
+    spoilerButton {
+        ...ComponentButton
+    }
+    customCss
 }

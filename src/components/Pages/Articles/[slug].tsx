@@ -34,12 +34,8 @@ const ArticlesDetails: React.FC<ArticlesTypes> = ({
         <Breadcrumb
           items={[...breadcrumbItems, { title: article?.title ?? '' }]}
         />
-        <PageBuilder pageBuilder={article?.pageBuilder} />
-        <ArticlesGrid
-          title={MESSAGES.ARTICLES}
-          items={[mocks.results[1], mocks.results[2], mocks.results[3]]}
-        />
       </StyledContainer>
+      <PageBuilder pageBuilder={article?.pageBuilder} />
     </StyledArticlesWrapper>
   );
 };

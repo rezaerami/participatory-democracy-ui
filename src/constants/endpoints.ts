@@ -1,5 +1,8 @@
 export const ENDPOINTS = {
   AUTH: {
+    SSO_REDIRECT: ({ service }: { service: string }) =>
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      `${process.env.REACT_APP_API_BASE_URL}/auth/sso-redirect/${service}`,
     REFRESH_TOKEN: () => '/auth/refresh-token',
     LOGOUT: () => '/auth/logout',
   },

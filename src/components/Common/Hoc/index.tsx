@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GlobalContextProvider } from './context';
-import { useAuthenticate } from 'hooks/useAuthenticate';
+import { useRedirect, useAuthenticate } from 'hooks';
 
 interface HocPropTypes {
   children: React.ReactNode;
@@ -8,6 +8,11 @@ interface HocPropTypes {
 
 const Hoc: React.FC<HocPropTypes> = ({ children }: HocPropTypes) => {
   const authenticate = useAuthenticate();
+  const { checkRedirection } = useRedirect();
+
+  useEffect(() => {
+    checkRedirection();
+  }, []);
 
   return (
     <GlobalContextProvider value={{ ...authenticate }}>

@@ -1,12 +1,20 @@
 import React from 'react';
 import { generatePath } from 'react-router-dom';
 
-import { ComponentHeroImage, Entry } from 'cms/graphql/types.generated';
+import {
+  ComponentHeroImage,
+  Entry,
+  ComponentButton,
+  ComponentCarousel,
+} from 'cms/graphql/types.generated';
 import { ComponentBlockArticleFragment } from 'cms/graphql/fragments/componentArticle.generated';
 import { ComponentPolisFragment } from 'cms/graphql/fragments/componentPolis.generated';
 import { getPathByTypename } from 'utils/utlUtils';
 
-import { Card, HeroImage, PolIsVoteBox } from 'components/Global';
+import { Card, Carousel, HeroImage, PolIsVoteBox } from 'components/Global';
+import Button from 'components/Common/cms/Button';
+import { ComponentBlockCategoryFragment } from '../../../../../../cms/graphql/fragments/componentCategory.generated';
+import { CarouselItemTypes } from '../../../../../Global/Carousel';
 
 export interface BlockEmbeddedEntryTypes {
   className?: string;
@@ -58,11 +66,43 @@ const BlockEmbeddedEntry: React.FC<BlockEmbeddedEntryTypes> = ({
     );
   };
 
+  const renderButton = (): React.ReactNode => {
+    const button = entry as ComponentButton;
+    return <Button button={button} block />;
+  };
+
+  const renderCarousel = (): React.ReactNode => {
+    const carousel = entry as ComponentCarousel;
+    /* eslint-disable @typescript-eslint/ban-ts-comment */
+    const items: CarouselItemTypes[] =
+      carousel?.carouselItemsCollection?.items?.map(
+        (item): CarouselItemTypes => ({
+          title: item?.title ?? '',
+          description: item?.subtitle ?? '',
+          // @ts-expect-error
+          image: item?.thumbnail?.url ?? item?.image?.url ?? '',
+          // @ts-expect-error
+          link: item?.slug
+            ? // @ts-expect-error
+              generatePath(getPathByTypename(item?.__typename ?? ''), {
+                // @ts-expect-error
+                slug: item?.slug,
+              })
+            : undefined,
+        }),
+      ) ?? [];
+    /* eslint-enable @typescript-eslint/ban-ts-comment */
+
+    return <Carousel items={items} autoplay={carousel?.autoplay ?? false} />;
+  };
+
   const lookup = {
     PageArticle: renderCard,
     PageCategory: renderCard,
     ComponentHeroImage: renderHero,
     ComponentPolIs: renderVoteBox,
+    ComponentButton: renderButton,
+    ComponentCarousel: renderCarousel,
   };
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

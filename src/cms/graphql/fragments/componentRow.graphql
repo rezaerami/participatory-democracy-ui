@@ -9,6 +9,8 @@ fragment ComponentRow on ComponentRow {
         ...ComponentCol
       }
     }
+    contained
+    customCss
 }
 
 query Row($id: String!, $colLimit: Int, $colSkip: Int) {

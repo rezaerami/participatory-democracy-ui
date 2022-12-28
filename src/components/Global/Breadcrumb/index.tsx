@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Breadcrumb as AntdBreadcrumb, BreadcrumbProps } from 'antd';
 
 export interface BreadcrumbItemTypes {
@@ -19,8 +18,8 @@ const Breadcrumb: React.FC<BreadcrumbTypes> = ({
 }: BreadcrumbTypes) => (
   <AntdBreadcrumb className={className} {...rest}>
     {items.map((item) => (
-      <AntdBreadcrumb.Item key={item.title}>
-        {item.link ? <Link to={item.link}>{item.title}</Link> : item.title}
+      <AntdBreadcrumb.Item href={item?.link ?? undefined} key={item.title}>
+        {item.title}
       </AntdBreadcrumb.Item>
     ))}
   </AntdBreadcrumb>
