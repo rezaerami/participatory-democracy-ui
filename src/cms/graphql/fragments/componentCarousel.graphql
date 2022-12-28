@@ -1,0 +1,24 @@
+fragment ComponentCarousel on ComponentCarousel {
+  sys {
+    id
+  }
+  __typename
+  title
+  autoplay
+  carouselItemsCollection {
+    total
+    skip
+    limit
+    items {
+      ... on ComponentHeroImage {
+        ...ComponentHeroImage
+      }
+      ... on PageArticle {
+        ...ComponentBlockArticle
+      }
+      ... on PageCategory {
+        ...ComponentBlockCategory
+      }
+    }
+  }
+}

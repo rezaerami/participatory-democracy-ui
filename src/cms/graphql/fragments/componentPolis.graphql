@@ -1,0 +1,9 @@
+fragment ComponentPolis on ComponentPolIs {
+    __typename
+    sys {
+      id
+    }
+    title
+    siteId
+    pageId
+}

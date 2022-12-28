@@ -1,0 +1,33 @@
+schema:
+  - 'https://graphql.contentful.com/content/v1/spaces/${REACT_APP_CONTENTFUL_SPACE_ID}/environments/${REACT_APP_CONTENTFUL_ENVIRONMENT_ID}':
+      headers:
+        Authorization: Bearer ${REACT_APP_CONTENTFUL_CONTENT_DELIVERY_API_TOKEN}
+documents: './src/cms/graphql/**/*.graphql'
+generates:
+  ./src/cms/graphql/types.generated.ts:
+    config:
+      nonOptionalTypename: true
+      inlineFragmentTypes: 'combine'
+      skipTypename: true
+      dedupeFragments: true
+    plugins:
+      - typescript
+
+  ./:
+    preset: near-operation-file
+    presetConfig:
+      baseTypesPath: ./src/cms/graphql/types.generated.ts
+    config:
+      dedupeFragments: true
+      nonOptionalTypename: false
+      arrayInputCoercion: false
+      withHooks: false
+      fetcher:
+        endpoint: 'https://graphql.contentful.com/content/v1/spaces/${REACT_APP_CONTENTFUL_SPACE_ID}/environments/${REACT_APP_CONTENTFUL_ENVIRONMENT_ID}'
+        fetchParams:
+          headers:
+            Authorization: Bearer ${REACT_APP_CONTENTFUL_CONTENT_DELIVERY_API_TOKEN}
+            'Content-Type': 'application/json'
+    plugins:
+      - typescript-operations
+      - typescript-react-query

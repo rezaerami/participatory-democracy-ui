@@ -1,0 +1,69 @@
+fragment ComponentCol on ComponentCol {
+    title
+    colXs
+    colSm
+    colMd
+    colLg
+    colXl
+    content {
+        json
+        links {
+          assets {
+            block {
+              ...ComponentAsset
+            }
+            hyperlink {
+              ...ComponentAsset
+            }
+          }
+          entries {
+            hyperlink {
+              ... on PageArticle {
+                ...ComponentInlineArticle
+              }
+              ... on PageCategory {
+                ...ComponentInlineCategory
+              }
+            }
+            inline {
+              ... on PageArticle {
+                ...ComponentInlineArticle
+              }
+              ... on PageCategory {
+                ...ComponentInlineCategory
+              }
+              ... on ComponentButton {
+                ...ComponentButton
+              }
+            }
+            block {
+              ... on PageArticle {
+                ...ComponentBlockArticle
+              }
+              ... on PageCategory {
+                ...ComponentBlockCategory
+              }
+              ... on ComponentHeroImage {
+                ...ComponentHeroImage
+              }
+              ... on ComponentPolIs {
+                ...ComponentPolis
+              }
+              ... on ComponentButton {
+                ...ComponentButton
+              }
+              ... on ComponentCarousel {
+                ...ComponentCarousel
+              }
+            }
+          }
+        }
+    }
+    sys {
+        id
+    }
+    spoilerButton {
+        ...ComponentButton
+    }
+    customCss
+}

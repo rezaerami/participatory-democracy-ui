@@ -1,0 +1,14 @@
+fragment ComponentAsset on Asset {
+    __typename
+    sys {
+      id
+    }
+    title
+    description
+    contentType
+    size
+    url
+    fileName
+    width
+    height
+}

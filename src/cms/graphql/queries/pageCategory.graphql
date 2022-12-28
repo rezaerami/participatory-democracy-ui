@@ -1,0 +1,23 @@
+query PageCategory($slug: String!) {
+    pageCategoryCollection(where: { slug: $slug }, limit: 1) {
+      items {
+        ...ComponentBlockCategory
+        metatags {
+          ...ComponentMetatags
+        }
+        pageBuilder {
+          ...ComponentPageBuilder
+        }
+        linkedFrom {
+          pageArticleCollection {
+            total
+            skip
+            limit
+            items {
+              ...ComponentBlockArticle
+            }
+          }
+        }
+      }
+    }
+}

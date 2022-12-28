@@ -1,0 +1,23 @@
+query PageArticle($slug: String!) {
+    pageArticleCollection(where: { slug: $slug }, limit: 1) {
+      items {
+        ...ComponentBlockArticle
+        categoriesCollection(limit: 10) {
+          items {
+            ...ComponentInlineCategory
+          }
+        }
+        metatags {
+          ...ComponentMetatags
+        }
+        attachmentsCollection(limit: 10) {
+          items {
+            ...ComponentAsset
+          }
+        }
+        pageBuilder {
+          ...ComponentPageBuilder
+        }
+      }
+    }
+}

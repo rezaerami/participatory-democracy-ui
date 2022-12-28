@@ -10,6 +10,8 @@ const additional = css`
     --nuke: #ffff00;
     --green: #009a3a;
     --red: #c41932;
+    --lightGray: #ededed;
+    --darkGray: #2d2d2d;
   }
   html {
     direction: ${(props) => props.theme.direction};

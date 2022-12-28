@@ -1,0 +1,16 @@
+fragment ComponentInlineCategory on PageCategory {
+  __typename
+  sys {
+    id
+  }
+  slug
+  title
+}
+
+fragment ComponentBlockCategory on PageCategory {
+    ...ComponentInlineCategory
+    subtitle
+    thumbnail {
+      ...ComponentAsset
+    }
+}

@@ -1,0 +1,16 @@
+fragment ComponentInlineArticle on PageArticle {
+  __typename
+  sys {
+    id
+  }
+  slug
+  title
+}
+
+fragment ComponentBlockArticle on PageArticle {
+  ...ComponentInlineArticle
+  subtitle
+  thumbnail {
+    ...ComponentAsset
+  }
+}

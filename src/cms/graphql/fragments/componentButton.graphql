@@ -1,0 +1,12 @@
+fragment ComponentButton on ComponentButton {
+  __typename
+  sys {
+    id
+  }
+  title
+  type
+  size
+  shape
+  href
+  target
+}

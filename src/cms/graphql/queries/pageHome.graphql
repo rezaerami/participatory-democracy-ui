@@ -1,0 +1,14 @@
+query PageHome {
+    pageHomeCollection(limit: 1) {
+      items {
+        title
+        subtitle
+        metatags {
+          ...ComponentMetatags
+        }
+        pageBuilder {
+          ...ComponentPageBuilder
+        }
+      }
+    }
+}
