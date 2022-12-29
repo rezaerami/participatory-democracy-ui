@@ -11,14 +11,12 @@ export interface LayoutTypes {
 const Layout: React.FC<LayoutTypes> = ({
   className,
   children,
-}: LayoutTypes) => {
-  return (
-    <StyledLayoutWrapper className={className}>
-      <Header />
-      <StyledContentWrapper>{children}</StyledContentWrapper>
-      <Footer />
-    </StyledLayoutWrapper>
-  );
-};
+}: LayoutTypes) => (
+  <StyledLayoutWrapper className={className}>
+    <Header />
+    <StyledContentWrapper>{children}</StyledContentWrapper>
+    <Footer />
+  </StyledLayoutWrapper>
+);
 
 export default Layout;

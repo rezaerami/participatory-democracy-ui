@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Menu } from 'antd';
-import Container from "components/Global/Container";
+import Container from 'components/Global/Container';
 
 export const StyledHeaderWrapper = styled.header`
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),

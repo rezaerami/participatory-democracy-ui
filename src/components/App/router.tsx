@@ -1,5 +1,12 @@
 import React from 'react';
-import {Home, AboutUs, Articles, ArticleDetails, CategoryDetails, Categories} from 'components/Pages';
+import {
+  Home,
+  AboutUs,
+  Articles,
+  ArticleDetails,
+  CategoryDetails,
+  Categories,
+} from 'components/Pages';
 import { ROUTES } from 'constants/routes';
 
 export const ROUTER = [

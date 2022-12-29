@@ -2,7 +2,7 @@ import React from 'react';
 
 import MESSAGES from 'constants/messages';
 import { StyledFooterWrapper } from './styles';
-import Container from "components/Global/Container";
+import Container from 'components/Global/Container';
 
 export interface FooterTypes {
   className?: string;
@@ -10,8 +10,7 @@ export interface FooterTypes {
 
 const Footer: React.FC<FooterTypes> = ({ className }: FooterTypes) => (
   <StyledFooterWrapper className={className}>
-    <Container>
-    {MESSAGES.COPYRIGHT}</Container>
+    <Container>{MESSAGES.COPYRIGHT}</Container>
   </StyledFooterWrapper>
 );
 

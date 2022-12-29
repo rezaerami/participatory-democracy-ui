@@ -6,10 +6,10 @@ export interface AboutUsTypes {
   className?: string;
 }
 
-const AboutUs: React.FC<AboutUsTypes> = ({ className }: AboutUsTypes) => {
-  return (
-      <StyledAboutUsWrapper className={className}>this is AboutUs</StyledAboutUsWrapper>
-  )
-};
+const AboutUs: React.FC<AboutUsTypes> = ({ className }: AboutUsTypes) => (
+  <StyledAboutUsWrapper className={className}>
+    this is AboutUs
+  </StyledAboutUsWrapper>
+);
 
 export default AboutUs;

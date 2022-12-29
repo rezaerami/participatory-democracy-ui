@@ -5,7 +5,6 @@ import { Entry, ComponentButton } from 'cms/graphql/types.generated';
 import { ComponentInlineArticleFragment } from 'cms/graphql/fragments/componentArticle.generated';
 import { ComponentInlineCategoryFragment } from 'cms/graphql/fragments/componentCategory.generated';
 
-
 import { getPathByTypename } from 'utils/utlUtils';
 import Button from 'components/Common/cms/Button';
 

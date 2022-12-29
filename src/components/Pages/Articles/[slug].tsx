@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { usePageArticleQuery } from 'cms/graphql/queries/pageArticle.generated';
-import {ComponentPageBuilder, PageArticle} from 'cms/graphql/types.generated';
+import { ComponentPageBuilder, PageArticle } from 'cms/graphql/types.generated';
 import { PageBuilder } from 'components/Common';
 import MESSAGES from 'constants/messages';
 import { ROUTES } from 'constants/routes';
