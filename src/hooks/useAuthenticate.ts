@@ -11,7 +11,7 @@ export default (): AuthenticationType => {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(search);
 
-  const [user, setUser] = useState<UserType | null>(null);
+  const [user, setUser] = useState<UserType | undefined>(undefined);
   const [token, setToken] = useState<string | null>(
     localStorage.getItem('token'),
   );
@@ -26,7 +26,7 @@ export default (): AuthenticationType => {
     mutationFn: logout,
     onSuccess: () => {
       localStorage.removeItem('token');
-      setUser(null);
+      setUser(undefined);
     },
   });
 

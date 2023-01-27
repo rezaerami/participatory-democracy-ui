@@ -3,7 +3,7 @@ import { createContext } from 'react';
 import { AuthenticationType } from 'types/user';
 
 const defaultValues: AuthenticationType = {
-  user: null,
+  user: undefined,
   token: null,
   isLoggedIn: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function

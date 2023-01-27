@@ -10,6 +10,22 @@ const MESSAGES = {
   RELEVANT_VOTING: 'نظرسنجی های مشابه',
   LOGIN_VIA_GOOGLE: 'ورود با حساب کاربری گوگل',
   CATEGORIES: 'دسته بندی ها',
+  TOPICS: 'گفتمان ها',
+  SHOW_TOPIC: 'مشاهده گفتمان',
+  MY_TOPICS: 'گفتمان های من',
+  CREATE_NEW_TOPIC: 'ساخت گفتمان جدید',
+  DESCRIPTIONS: 'توضیحات',
+  EDIT: 'ویرایش',
+  VISIT: 'مشاهده',
+  ADD: 'افزودن',
+  IMAGE: 'تصویر',
+  TITLE: 'عنوان',
+  CONTENT: 'محتوا',
+  SUBMIT: 'ثبت',
+  CANCEL: 'لغو',
+  POLIS_DESCRIPTIONS: 'توضییحات صفحه گفتمان',
+  POLIS_COMMENTS: 'نظرات اولیه گفتمان',
+  ADD_COMMENT: 'افزودن نظر',
 };
 
 export default MESSAGES;

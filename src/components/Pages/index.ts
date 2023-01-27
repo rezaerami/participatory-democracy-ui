@@ -4,3 +4,8 @@ export { default as Articles } from './Articles';
 export { default as ArticleDetails } from './Articles/[slug]';
 export { default as Categories } from './Categories';
 export { default as CategoryDetails } from './Categories/[slug]';
+export { default as Topics } from './Topics';
+export { default as TopicDetails } from './Topics/[slug]';
+export { default as CreateTopic } from './Topics/create';
+export { default as EditTopic } from './Topics/edit';
+export { default as MyTopics } from './Profile/MyTopics';

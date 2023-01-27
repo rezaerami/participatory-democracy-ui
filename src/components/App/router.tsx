@@ -6,6 +6,11 @@ import {
   ArticleDetails,
   CategoryDetails,
   Categories,
+  Topics,
+  TopicDetails,
+  MyTopics,
+  CreateTopic,
+  EditTopic,
 } from 'components/Pages';
 import { ROUTES } from 'constants/routes';
 
@@ -34,6 +39,31 @@ export const ROUTER = [
     path: ROUTES.CATEGORY_DETAILS,
     exact: true,
     element: <CategoryDetails />,
+  },
+  {
+    path: ROUTES.TOPICS,
+    exact: true,
+    element: <Topics />,
+  },
+  {
+    path: ROUTES.TOPIC_DETAILS,
+    exact: true,
+    element: <TopicDetails />,
+  },
+  {
+    path: ROUTES.CREATE_TOPIC,
+    exact: true,
+    element: <CreateTopic />,
+  },
+  {
+    path: ROUTES.EDIT_TOPIC,
+    exact: true,
+    element: <EditTopic />,
+  },
+  {
+    path: ROUTES.MY_TOPICS,
+    exact: true,
+    element: <MyTopics />,
   },
   {
     path: ROUTES.HOME,

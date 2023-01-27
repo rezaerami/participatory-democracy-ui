@@ -1,3 +1,5 @@
+import { WhiteHouseResponseType } from './common';
+
 export interface UserType {
   name: string;
   email: string;
@@ -5,7 +7,11 @@ export interface UserType {
 }
 export interface AuthenticationType {
   token: string | null;
-  user: UserType | null;
+  user: UserType | undefined;
   isLoggedIn: boolean;
   handleLogout: () => void;
+}
+
+export interface GetProfileResponseType extends WhiteHouseResponseType {
+  results: UserType;
 }

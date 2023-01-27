@@ -45,6 +45,17 @@ const Header: React.FC<HeaderTypes> = ({ className }: HeaderTypes) => {
       }
     };
 
+  const renderLink = (item: NavItemType): React.ReactNode =>
+    isExternalUrl(item?.path ?? '') ? (
+      <a href={item.path} onClick={handleNavItemClick(item)}>
+        {item.label}
+      </a>
+    ) : (
+      <Link to={item?.path ?? ''} onClick={handleNavItemClick(item)}>
+        {item.label}
+      </Link>
+    );
+
   return (
     <StyledHeaderWrapper className={className}>
       <StyledNavWrapper>
@@ -58,9 +69,7 @@ const Header: React.FC<HeaderTypes> = ({ className }: HeaderTypes) => {
                     : guestMenu
                   ).map((item) => ({
                     label: item?.path ? (
-                      <Link to={item.path} onClick={handleNavItemClick(item)}>
-                        {item.label}
-                      </Link>
+                      renderLink(item)
                     ) : (
                       <span onClick={item.onClick}>{item.label}</span>
                     ),

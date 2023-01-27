@@ -65,6 +65,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/promise-function-async': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
   },
   settings: {
     'import/resolver': {

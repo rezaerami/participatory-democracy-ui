@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'constants/routes';
-import { isExternalUrl } from '../utils/utlUtils';
+import { isExternalUrl } from 'utils/utlUtils';
 
 export interface UseRedirectTypes {
   redirect: (url: string, redirectUrl: string) => void;
